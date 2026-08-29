@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mahanoor Naeem — CV</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --purple: #6d5efc;
+      --cyan:   #06b6d4;
+      --dark:   #0b0f20;
+      --text:   #1e293b;
+      --text-2: #475569;
+      --border: #e2e8f0;
+      --bg:     #f8fafc;
+      --card:   #ffffff;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .page {
+      max-width: 860px;
+      margin: 0 auto;
+      background: var(--card);
+      padding: 48px 52px;
+      min-height: 100vh;
+    }
+
+    /* HEADER */
+    .header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: start;
+      padding-bottom: 28px;
+      border-bottom: 2px solid var(--border);
+      margin-bottom: 32px;
+    }
+    .header-name {
+      font-size: 2.2rem; font-weight: 700;
+      letter-spacing: -0.5px; color: var(--dark); line-height: 1.1;
+    }
+    .header-title {
+      font-size: 0.92rem; font-weight: 600; margin-top: 6px;
+      background: linear-gradient(90deg, var(--purple), var(--cyan));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .header-contact {
+      text-align: right; font-size: 0.8rem; color: var(--text-2);
+      display: flex; flex-direction: column; gap: 4px;
+    }
+    .header-contact a { color: var(--purple); text-decoration: none; }
+
+    /* SECTION */
+    .section { margin-bottom: 30px; }
+    .section-title {
+      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--purple);
+      font-family: 'JetBrains Mono', monospace;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 8px; margin-bottom: 18px;
+    }
+
+    /* SUMMARY */
+    .summary { color: var(--text-2); font-size: 0.9rem; line-height: 1.75; }
+
+    /* EXPERIENCE */
+    .exp-item { margin-bottom: 22px; }
+    .exp-header { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+    .exp-role { font-size: 1rem; font-weight: 600; color: var(--dark); }
+    .exp-period { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--cyan); white-space: nowrap; }
+    .exp-period.current::after { content: ' · Current'; color: var(--purple); font-weight: 600; }
+    .exp-company { font-size: 0.82rem; color: var(--text-2); margin-bottom: 8px; font-weight: 500; }
+    .exp-points { padding-left: 0; list-style: none; display: flex; flex-direction: column; gap: 5px; }
+    .exp-points li { font-size: 0.87rem; color: var(--text-2); padding-left: 18px; position: relative; }
+    .exp-points li::before { content: "▸"; position: absolute; left: 0; color: var(--purple); }
+    .exp-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+    .exp-tags span {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem; padding: 2px 10px; border-radius: 999px;
+      border: 1px solid rgba(109,94,252,0.35);
+      background: rgba(109,94,252,0.06); color: var(--purple);
+    }
+
+    /* SKILLS */
+    .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .skill-group-label { font-size: 0.78rem; font-weight: 600; color: var(--dark); margin-bottom: 5px; }
+    .skill-pills { display: flex; flex-wrap: wrap; gap: 5px; }
+    .skill-pills span {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem; padding: 3px 10px; border-radius: 999px;
+      background: var(--bg); border: 1px solid var(--border); color: var(--text-2);
+    }
+
+    /* EDUCATION */
+    .edu-item { margin-bottom: 16px; }
+    .edu-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; }
+    .edu-degree { font-size: 0.95rem; font-weight: 600; color: var(--dark); }
+    .edu-period { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--cyan); }
+    .edu-institute { font-size: 0.82rem; color: var(--text-2); margin-bottom: 4px; }
+    .edu-note { font-size: 0.82rem; color: var(--text-2); font-style: italic; }
+
+    /* CERTIFICATIONS */
+    .cert-list { display: flex; flex-direction: column; gap: 8px; }
+    .cert-item { display: flex; justify-content: space-between; font-size: 0.87rem; }
+    .cert-name { font-weight: 500; color: var(--dark); }
+    .cert-issuer { color: var(--text-2); }
+
+    /* SAVE BUTTON */
+    .save-hint {
+      position: fixed; top: 20px; right: 20px;
+      background: var(--purple); color: #fff;
+      padding: 10px 18px; border-radius: 8px;
+      font-size: 0.82rem; cursor: pointer; font-weight: 500;
+      box-shadow: 0 4px 20px rgba(109,94,252,0.4);
+      border: none; font-family: 'Inter', sans-serif;
+    }
+
+    @media print {
+      body { background: #fff; }
+      .page { padding: 30px 36px; max-width: 100%; }
+      .save-hint { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<button class="save-hint" onclick="window.print()">🖨️ Save as PDF (Ctrl+P)</button>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div>
+      <h1 class="header-name">Mahanoor Naeem</h1>
+      <p class="header-title">Full Stack Developer &nbsp;·&nbsp; MERN Stack Developer &nbsp;·&nbsp; AI Engineer</p>
+    </div>
+    <div class="header-contact">
+      <span>📍 Karachi, Pakistan</span>
+      <span>📞 0327-2351553</span>
+      <a href="mailto:mahanoornaeem2290@gmail.com">mahanoornaeem2290@gmail.com</a>
+      <a href="https://github.com/mahanoornaeem2290">github.com/mahanoornaeem2290</a>
+      <a href="https://linkedin.com/in/mahanoor-naeem-45399a401">linkedin.com/in/mahanoor-naeem</a>
+    </div>
+  </header>
+
+  <!-- SUMMARY -->
+  <section class="section">
+    <div class="section-title">// Professional Summary</div>
+    <p class="summary">
+      Full Stack Developer and MERN Stack Developer with hands-on experience building responsive, high-performance web applications end to end — React interfaces, Node.js/Express &amp; FastAPI backends, MongoDB &amp; MySQL data layers. Self-taught AI model training with growing expertise in AI-driven UI development through ongoing software engineering coursework. Skilled in blending full-stack engineering with digital marketing including SEO-driven affiliate campaigns. Known for strong ownership, fast learning, and a genuine passion for emerging web and AI technologies.
+    </p>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="section">
+    <div class="section-title">// Professional Experience</div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <span class="exp-role">Full Stack Developer &amp; AI Innovator</span>
+        <span class="exp-period current">2025 — Present</span>
+      </div>
+      <p class="exp-company">Self-Employed &nbsp;·&nbsp; Freelance &nbsp;·&nbsp; Karachi, Pakistan</p>
+      <ul class="exp-points">
+        <li>Architected and developed complete MERN stack web applications — React front ends, Node.js/Express APIs, and MongoDB/MySQL data layers.</li>
+        <li>Built high-performance web tools using JavaScript, React.js, and Bootstrap 5 with modern UI/UX design patterns.</li>
+        <li>Researched and integrated AI-driven UI components to enhance user interactivity and engagement.</li>
+        <li>Self-taught and trained AI models independently, applying that knowledge to AI-assisted development workflows.</li>
+        <li>Led affiliate marketing campaigns with a strategic focus on SEO and conversion rate optimization.</li>
+      </ul>
+      <div class="exp-tags">
+        <span>React.js</span><span>Node.js</span><span>Express.js</span><span>MongoDB</span>
+        <span>MySQL</span><span>JavaScript</span><span>Bootstrap 5</span><span>FastAPI</span>
+        <span>AI Integration</span><span>SEO</span>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <span class="exp-role">Digital Marketing &amp; Email Specialist</span>
+        <span class="exp-period">2023 — 2024</span>
+      </div>
+      <p class="exp-company">Interactive Media &nbsp;·&nbsp; Karachi, Pakistan</p>
+      <ul class="exp-points">
+        <li>Managed end-to-end email automation lifecycles supporting major product launches.</li>
+        <li>Served as lead translator for marketing collateral, ensuring cross-cultural brand consistency.</li>
+        <li>Collaborated with design teams on UI refactoring initiatives, reducing bounce rates by 20%.</li>
+      </ul>
+      <div class="exp-tags">
+        <span>Email Automation</span><span>UI Refactoring</span><span>Brand Strategy</span><span>CRO</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="section">
+    <div class="section-title">// Technical Skills</div>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <div class="skill-group-label">Frontend Development</div>
+        <div class="skill-pills">
+          <span>React.js</span><span>JavaScript (ES6+)</span><span>jQuery</span>
+          <span>HTML5</span><span>CSS3</span><span>Bootstrap 5</span><span>Responsive Design</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-label">Backend Development</div>
+        <div class="skill-pills">
+          <span>Node.js</span><span>Express.js</span><span>FastAPI</span>
+          <span>Python</span><span>PHP</span><span>REST APIs</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-label">Databases</div>
+        <div class="skill-pills">
+          <span>MongoDB</span><span>MySQL</span><span>SQL</span><span>SQLite</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-label">AI &amp; Machine Learning</div>
+        <div class="skill-pills">
+          <span>TensorFlow</span><span>Scikit-learn</span><span>OpenCV</span>
+          <span>MediaPipe</span><span>NumPy</span><span>Pandas</span><span>CNN</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-label">Tools &amp; Version Control</div>
+        <div class="skill-pills">
+          <span>Git</span><span>GitHub</span><span>GitHub Copilot</span>
+          <span>Gemini</span><span>ChatGPT</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-label">Digital Marketing</div>
+        <div class="skill-pills">
+          <span>Affiliate Marketing</span><span>SEO Optimization</span>
+          <span>Email Automation</span><span>CRO</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section class="section">
+    <div class="section-title">// Education</div>
+
+    <div class="edu-item">
+      <div class="edu-header">
+        <span class="edu-degree">ACCP AI — Software Engineering</span>
+        <span class="edu-period">In Progress</span>
+      </div>
+      <p class="edu-institute">Aptech Computer Education &nbsp;·&nbsp; Karachi, Pakistan</p>
+      <p class="edu-note">Top-performing student focusing on full-stack development, jQuery, and AI tools. Leads peer-to-peer coding sessions.</p>
+    </div>
+
+    <div class="edu-item">
+      <div class="edu-header">
+        <span class="edu-degree">Associate Degree in Arts (ADA)</span>
+        <span class="edu-period">Graduated</span>
+      </div>
+      <p class="edu-institute">University of Karachi</p>
+      <p class="edu-note">Balanced academic research with professional technical certifications.</p>
+    </div>
+
+    <div class="edu-item">
+      <div class="edu-header">
+        <span class="edu-degree">Intermediate &amp; Matriculation</span>
+        <span class="edu-period">Completed</span>
+      </div>
+      <p class="edu-institute">Women Degree College &amp; Government Girls Pilot School</p>
+      <p class="edu-note">Computer science foundation; active in student leadership and academic competitions.</p>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section class="section">
+    <div class="section-title">// Certifications</div>
+    <div class="cert-list">
+      <div class="cert-item">
+        <span class="cert-name">English — Advanced Level</span>
+        <span class="cert-issuer">Domino Institute</span>
+      </div>
+      <div class="cert-item">
+        <span class="cert-name">Affiliate Marketing</span>
+        <span class="cert-issuer">Professional Training Center</span>
+      </div>
+      <div class="cert-item">
+        <span class="cert-name">Freelancing</span>
+        <span class="cert-issuer">Digital Growth Hub</span>
+      </div>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
