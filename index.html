@@ -1,2 +1,160 @@
-<html>
-...
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Mahanoor Naeem — Full Stack Engineer & AI Engineer in Karachi. Building scalable MERN-stack applications and intelligent, AI-powered digital products." />
+  <title>Mahanoor Naeem · Full Stack Engineer &amp; AI Engineer</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Cormorant+Garamond:i[...]
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+  <div class="scan-progress" id="scanProgress"></div>
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- ═══════════ NAVBAR ═══════════ -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="#hero" class="nav-logo">
+        <span class="brand-word">NoorVerse</span>
+        <span class="role-tag">Full Stack &amp; AI Engineer</span>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li style="--i:0"><a href="#about" class="nav-link"><i class="fas fa-user nav-link-icon"></i><span
+              class="nav-link-num">01</span><span class="nav-link-text">About</span></a></li>
+        <li style="--i:1"><a href="#experience" class="nav-link"><i class="fas fa-briefcase nav-link-icon"></i><span
+              class="nav-link-num">02</span><span class="nav-link-text">Experience</span></a></li>
+        <li style="--i:2"><a href="#skills" class="nav-link"><i class="fas fa-code nav-link-icon"></i><span
+              class="nav-link-num">03</span><span class="nav-link-text">Skills</span></a></li>
+        <li style="--i:3"><a href="#services" class="nav-link"><i class="fas fa-layer-group nav-link-icon"></i><span
+              class="nav-link-num">04</span><span class="nav-link-text">Services</span></a></li>
+        <li style="--i:4"><a href="#projects" class="nav-link"><i class="fas fa-diagram-project nav-link-icon"></i><span
+              class="nav-link-num">05</span><span class="nav-link-text">Projects</span></a></li>
+        <li style="--i:5"><a href="#journey" class="nav-link"><i class="fas fa-route nav-link-icon"></i><span
+              class="nav-link-num">06</span><span class="nav-link-text">Journey</span></a></li>
+        <li style="--i:6"><a href="#contact" class="nav-link"><i class="fas fa-paper-plane nav-link-icon"></i><span
+              class="nav-link-num">07</span><span class="nav-link-text">Contact</span></a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="assets/Mahanoor_Naeem_CV.pdf" download class="nav-cv magnetic"><i class="fas fa-arrow-down"></i> CV</a>
+        <a href="#contact" class="btn btn-primary btn-sm magnetic">Hire Me</a>
+        <button class="hamburger" id="hamburger"
+          aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════ HERO ═══════════ -->
+  <section class="hero" id="hero">
+    <div class="hero-glow hero-glow-1"></div>
+    <div class="hero-glow hero-glow-2"></div>
+    <div class="hero-glow hero-glow-3"></div>
+
+    <div class="container hero-inner">
+      <div class="hero-content">
+        <div class="hero-badge"><span class="dot"></span> Available for opportunities</div>
+
+        <p class="hero-greeting hero-brand"><span class="glyph">✦</span> NoorVerse <span class="glyph">✦</span></p>
+        <p class="hero-greeting">Hello, I'm</p>
+        <h1 class="hero-name">Mahanoor Naeem</h1>
+
+        <div class="hero-role">
+          <span class="role-prefix">I build</span>
+          <span class="typed-text" id="typedText"></span><span class="typed-cursor">|</span>
+        </div>
+
+        <p class="hero-headline">Full-stack products, powered by AI that actually ships.</p>
+
+        <p class="hero-sub">I build complete web applications end to end — React interfaces, Node.js/Express &amp;
+          FastAPI backends, MongoDB/MySQL data layers — and I bring machine learning into that same stack myself, from
+          model training to real-world integration.</p>
+
+        <div class="hero-cta">
+          <a href="#projects" class="btn btn-primary magnetic"><i class="fas fa-rocket"></i> View Projects</a>
+          <a href="assets/Mahanoor_Naeem_CV.pdf" download class="btn btn-ghost magnetic"><i
+              class="fas fa-file-arrow-down"></i> Download CV</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-item"><span class="stat-num">8+</span><span class="stat-label">Projects Shipped</span></div>
+          <div class="stat-divider"></div>
+          <div class="stat-item"><span class="stat-num">MERN</span><span class="stat-label">+ AI/ML Stack</span></div>
+          <div class="stat-divider"></div>
+          <div class="stat-item"><span class="stat-num">∞</span><span class="stat-label">Curiosity Level</span></div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="orb-container">
+          <div class="orb-halo"></div>
+          <div class="orb-halo orb-halo-2"></div>
+          <div class="orb-ring orb-ring-1"></div>
+          <div class="orb-ring orb-ring-2"></div>
+          <div class="orb-ring orb-ring-3"></div>
+          <div class="orb-core"></div>
+          <div class="orbit orbit-1">
+            <div class="orbit-dot"></div>
+          </div>
+          <div class="orbit orbit-2">
+            <div class="orbit-dot"></div>
+          </div>
+          <div class="orbit orbit-3">
+            <div class="orbit-dot"></div>
+          </div>
+        </div>
+
+        <div class="float-tag float-tag-1"><i class="fab fa-react"></i> React / MERN</div>
+        <div class="float-tag float-tag-2"><i class="fas fa-brain"></i> TensorFlow</div>
+        <div class="float-tag float-tag-3"><i class="fas fa-eye"></i> OpenCV</div>
+        <div class="float-tag float-tag-4"><i class="fas fa-server"></i> FastAPI</div>
+      </div>
+    </div>
+
+    <div class="scroll-indicator">
+      <div class="scroll-line"></div><span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ...rest of file omitted for brevity... -->
+
+  <!-- ═══════════ FOOTER ═══════════ -->
+  <footer class="footer">
+    <div class="footer-glow"></div>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">&lt;Noorverse/&gt; — Full Stack &amp; AI Engineer</div>
+        <p class="footer-tagline">Building scalable full-stack products, powered by AI that ships.</p>
+        <div class="footer-social">
+          <a href="https://github.com/mahanoornaeem2290" target="_blank" aria-label="GitHub"><i
+              class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/mahanoor-naeem-45399a401" target="_blank" aria-label="LinkedIn"><i
+              class="fab fa-linkedin-in"></i></a>
+          <a href="mailto:mahanoornaeem2290@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          <a href="assets/Mahanoor_Naeem_CV.pdf" download aria-label="Download CV"><i
+              class="fas fa-file-arrow-down"></i></a>
+        </div>
+        <div class="footer-meta">© 2026 Noorverse · Built with HTML, CSS &amp; JavaScript</div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
